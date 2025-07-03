@@ -1,0 +1,22 @@
+<!-- weather/templates/weather/home.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App</title>
+</head>
+<body>
+    <h1>🌤️ Weather Checker</h1>
+    <form method="get" action="{% url 'weather:home' %}">
+        <input type="text" name="city" placeholder="Enter city" required>
+        <button type="submit">Check Weather</button>
+    </form>
+
+    {% if weather %}
+        <h2>Weather in {{ weather.city }}</h2>
+        <p>🌡️ Temperature: {{ weather.temperature }}°C</p>
+        <p>🌥️ Description: {{ weather.description }}</p>
+    {% elif error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>

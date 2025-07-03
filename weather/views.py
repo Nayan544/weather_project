@@ -32,3 +32,27 @@ class WeatherDataViewSet(viewsets.ModelViewSet):
             return Response(serializer.data)
         else:
             return Response({'error': 'City not found or API error'})
+        
+
+
+from django.shortcuts import render
+import requests
+
+def home(request):
+    city = request.GET.get('city')
+    weather = None
+    error = None
+
+    if city:
+        url = 'http://127.0.0.1:8000/weather/fetch/'
+        params = {'city': city}
+        try:
+            response = requests.get(url, params=params)
+            if response.status_code == 200:
+                weather = response.json()
+            else:
+                error = "City not found or API error."
+        except Exception as e:
+            error = str(e)
+
+    return render(request, 'weather/home.html', {'weather': weather, 'error': error})
