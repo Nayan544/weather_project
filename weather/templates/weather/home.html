@@ -1,8 +1,64 @@
-<!-- weather/templates/weather/home.html -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Weather App</title>
+    <title>Weather</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #74ebd5, #ACB6E5);
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        form {
+            margin-bottom: 40px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 250px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        h2 {
+            margin-top: 30px;
+            font-size: 2em;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        p[style*="color:red;"] {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <h1>🌤️ Weather Checker</h1>
